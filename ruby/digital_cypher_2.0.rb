@@ -1,3 +1,15 @@
+=begin
+TASK
+Write a function that accepts str string and key number and returns
+an array of integers representing encoded str.
+
+INPUT / OUTPUT
+The str input string consists of lowercase characters only.
+The key input number is a positive integer.
+
+Implement such a function using another function that assign a unique number to
+evey alphabet letter 
+=end
 
 def encode(message, key)
   message_array = message.split("")
