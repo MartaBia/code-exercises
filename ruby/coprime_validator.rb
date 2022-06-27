@@ -20,24 +20,25 @@ Result: 12 and 39 are not coprimes
 =end
 
 def get_factors(n)
-  factor_n = []
+  factors_n = []
   for i in 1 .. n
-    if n % i == 0
-      factor_n.push(i)
-    end
+    factors_n.push(i) if n % i == 0
   end
-  factor_n
+  factors_n
 end
 
 def coprime?(n, m)
-  factor_n = get_factors(n)
-  factor_m = get_factors(m)
-  for i in 0 .. n.lenght - 1
-    value = n[i]
-    if factor_m.include?(value) && va
-    end
+  factors_n = get_factors(n)
+  factors_m = get_factors(m)
+  for i in 1 .. factors_n.length - 1 # I begin to loop from index 1 as at index 0 I always get the value 1, which is always in common
+    value = factors_n[i]
+    return false if factors_m.include?(value)
   end
+  true
+
+  #TOMMY'S SOLUTION:
+  # (factors_n & factors_m).length == 1
 end
 
-print get_factors(12)
-print get_factors(39)
+puts coprime?(20, 27)
+puts coprime?(12, 39)
