@@ -5,21 +5,42 @@ Your code should be less than 300 characters.
 Watch out for the three points at the end of the song.
 =end
 
-# def baby_shark_lyrics
-#
-#   def generator(shark_type)
-#     doo = "doo doo doo doo doo doo"
-#     3.times{"#{shark_type} shark, #{doo}"}
-#     "#{shark_type} shark!"
+
+def baby_shark_lyrics()
+  song = ""
+  keywords = ["Baby shark", "Mommy shark", "Daddy shark", "Grandma shark", "Grandpa shark", "Let's go hunt"]
+  keywords.each do |keyword|
+    3.times{
+      song += "#{keyword}, "
+      5.times{
+        song += "doo "
+      }
+      song += "doo\n"
+    }
+    song += "#{keyword}!\n"
+  end
+
+  song += "Run away,…"
+
+  return song
+end
+
+# --- submitted on Codewars as <300 characters ------------------------------
+
+# def baby_shark_lyrics()
+#   s=""
+#   ks=["Baby shark","Mommy shark","Daddy shark","Grandma shark","Grandpa shark","Let's go hunt"]
+#   ks.each do |k|
+#     3.times{
+#       s+="#{k}, "
+#       5.times{
+#         s+="doo "
+#       }
+#       s+="doo\n"
+#     }
+#     s+="#{k}!\n"
 #   end
-#   generator("Baby")
-#   generator("Mommy")
-#   generator("Daddy")
-#   generator("Grandma")
-#   generator("Grandpa")
-#
-#   3.times{"Let's go hunt, doo doo doo doo doo doo"
-#   "Let's go hunt!"}
+#   s+="Run away,…"
 # end
-#
-# puts baby_shark_lyrics
+
+puts baby_shark_lyrics
