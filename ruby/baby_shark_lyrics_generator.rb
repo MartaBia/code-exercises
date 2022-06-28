@@ -5,6 +5,7 @@ Your code should be less than 300 characters.
 Watch out for the three points at the end of the song.
 =end
 
+# --- Completed version ------------------------------
 
 def baby_shark_lyrics()
   song = ""
@@ -25,7 +26,7 @@ def baby_shark_lyrics()
   return song
 end
 
-# --- submitted on Codewars as <300 characters ------------------------------
+# --- submitted on Codewars as <300 characters -------
 
 # def baby_shark_lyrics()
 #   s=""
