@@ -27,13 +27,64 @@ puts square(237)
 
 # Write a function called "shout" that takes a String as an input and returns that string in capital letters
 
-def shout(string)
-  string.upcase
+# -- Cheating method ---------------------------
+
+# def shout(string)
+#   string.upcase
+# end
+
+def shout(word)
+  alphabet = { a: "A",
+    b: "B",
+    c: "C",
+    d: "D",
+    e: "E",
+    f: "F",
+    g: "G",
+    h: "H",
+    i: "I",
+    j: "J",
+    k: "K",
+    l: "L",
+    m: "M",
+    n: "N",
+    o: "O",
+    p: "P",
+    q: "Q",
+    r: "R",
+    s: "S",
+    t: "T",
+    u: "U",
+    v: "V",
+    w: "W",
+    x: "X",
+    y: "Y",
+    z: "Z"
+  }
+  letters = word.split("")
+  uppercase_word = ""
+  letters.each do |letter|
+
+    # -- First version: ---------
+
+    # if alphabet.key?(letter.to_sym)
+    #   upper_case_letter = alphabet[letter.to_sym]
+    # else
+    #   upper_case_letter = letter
+    # end
+
+    # -- Refactored: ---------
+
+    uppercase_word += alphabet.key?(letter.to_sym) ? alphabet[letter.to_sym] : letter
+  end
+  uppercase_word
 end
 
 puts shout("ciao")
 puts shout("no")
 puts shout("Evviva")
+
+
 
 # Write a "greeter" function that takes a name as an input and returns the greeter
 
