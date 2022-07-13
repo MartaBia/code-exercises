@@ -1,5 +1,6 @@
 
-#------ Conditionals-----------------------
+# Write a conditional statement that will tell you if to go out for dinner
+# if your bank balance is > 100.00 and return "stay at home " if not
 
 def dinner_plans(bank_balance)
   if bank_balance >= 100
@@ -12,7 +13,7 @@ end
 puts dinner_plans(132)
 puts dinner_plans(97)
 
-#------ Methods with 2 arguments ---------------
+# Write a function that will let you say happy birthday to someone a given numeber of times
 
 def say_happy_bithday(name, repetition)
   repetition.times{puts "Happy Birthday #{name}"}
@@ -21,7 +22,8 @@ end
 say_happy_bithday("Marta", 3)
 say_happy_bithday("Piripillo", 5)
 
-#------ Methods -------------------------------
+# Write a function that will check whether the number given to it as an argument
+# is positive or negative, or 0. Display a message with the answer.
 
 def positive_or_negative(n)
   if n > 0
@@ -85,13 +87,19 @@ song = ""
 verse.each do |x|
   if x == 3
     song += "If you're happy and you know it #{special},\n"
-    next
   end
   song += "If you're happy and you know it #{default},\n"
 end
  puts song
 
-#--------------------------
+# Create an array of numbers and iterate over them displaying the number multiplied by 2
+
+array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+array.each do |number|
+  puts number * 2 
+end
+
+# DONE INDEPENDENTRLY: iterating over and array and displaying only numbers that are multiple of 2
 
  array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
  array.each do |number|
