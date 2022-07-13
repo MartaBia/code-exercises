@@ -23,13 +23,13 @@ class Circle
   end
 
   def can_fit?(other_circle)
-    @radius > other_circle.radius 
+    @radius > other_circle.radius
   end
-
 end
 
 circle1 = Circle.new(5)
 circle2 = Circle.new(3)
+
 puts circle1.circumference
 puts circle1.area
 puts circle1.can_fit?(circle2)
