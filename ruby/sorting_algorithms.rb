@@ -41,10 +41,56 @@ class InsertionSort
   end
 end
 
+class SelectionSort
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def sort(array)
+    for i in 0 ... array.length - 1
+      min = array[i]
+      min_index = i
+      for j in i + 1 ... array.length
+        if min > array[j]
+          min = array[j]
+          min_index = j
+        end
+      end
+      temp = array[i]
+      array[i] = array[min_index]
+      array[min_index] = temp
+    end
+    array
+  end
+
+  # The first working version I did
+  def original_sort(array)
+    for i in 0 ... array.length
+      min = nil
+      for j in i ... array.length
+        if min == nil
+          min = array[j]
+          min_index = j
+        elsif min > array[j]
+          min = array[j]
+          min_index = j
+        end
+      end
+      temp = array[i]
+      array[i] = array[min_index]
+      array[min_index] = temp
+    end
+    array
+  end
+end
+
 use_debug_array = true
 sorters = [
   RubySort.new("Ruby Sort"),
   InsertionSort.new("Insertion Sort"),
+  SelectionSort.new("Selection Sort")
 ]
 
 # === Test Code - do not touch =========================================================
