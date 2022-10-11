@@ -86,11 +86,36 @@ class SelectionSort
   end
 end
 
+class BubbleSort
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def sort(array)
+    has_swapped = true
+    while has_swapped
+      has_swapped = false
+      for i in 0 ... array.length - 1
+        if array[i] > array[i+1]
+          temp = array[i]
+          array[i] = array[i+1]
+          array[i+1] = temp
+          has_swapped = true
+        end
+      end
+    end
+    array
+  end
+end
+
 use_debug_array = true
 sorters = [
   RubySort.new("Ruby Sort"),
   InsertionSort.new("Insertion Sort"),
-  SelectionSort.new("Selection Sort")
+  SelectionSort.new("Selection Sort"),
+  BubbleSort.new("Bubble Sort"),
 ]
 
 # === Test Code - do not touch =========================================================
