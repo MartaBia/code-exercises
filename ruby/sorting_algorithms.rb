@@ -110,12 +110,58 @@ class BubbleSort
   end
 end
 
+class MergeSort
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def sort(array)
+    if array.length == 1
+      return array
+    else
+      left_array = array.slice(0, array.length / 2)
+      right_array = array.slice(array.length / 2, array.length - (array.length / 2))
+
+      left_array = sort(left_array)
+      right_array = sort(right_array)
+
+      i = 0
+      j = 0
+      sorted_array = []
+      while i < left_array.length && j < right_array.length
+        if left_array[i] < right_array[j]
+          sorted_array.push(left_array[i])
+          i += 1
+        else
+          sorted_array.push(right_array[j])
+          j += 1
+        end
+      end
+
+      while i < left_array.length
+        sorted_array.push(left_array[i])
+        i += 1
+      end
+
+      while j < right_array.length
+        sorted_array.push(right_array[j])
+        j += 1
+      end
+
+    sorted_array
+    end
+  end
+end
+
 use_debug_array = true
 sorters = [
   RubySort.new("Ruby Sort"),
   InsertionSort.new("Insertion Sort"),
   SelectionSort.new("Selection Sort"),
   BubbleSort.new("Bubble Sort"),
+  MergeSort.new("Merge Sort"),
 ]
 
 # === Test Code - do not touch =========================================================
@@ -135,7 +181,8 @@ sorters.each do |sorter|
   puts "Sorting Algorithm: #{sorter.name}"
 
   starting_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  array_sorted = sorter.sort(array)
+  array_unsorted = array.clone
+  array_sorted = sorter.sort(array_unsorted)
   ending_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
   elapsed_time = ending_time - starting_time
   puts "Elapsed Time: #{elapsed_time} seconds"
