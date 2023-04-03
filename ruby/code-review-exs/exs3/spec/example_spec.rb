@@ -16,4 +16,12 @@ RSpec.describe 'is_spell_correct' do
   it 'returns a string with all the words misspelled highlighted' do
     expect(is_spell_correct('Helo worl')).to eq('~Helo~ ~worl~')
   end
+
+  it 'returns a string with a mix of correct and incorrect words' do
+    expect(is_spell_correct('I hav one aple')).to eq('I ~hav~ one ~aple~')
+  end
+
+  it 'raise an error if no text is passed' do
+    expect { is_spell_correct('') }.to raise_error('please, insert a text')
+  end
 end
