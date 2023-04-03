@@ -1,5 +1,5 @@
 def is_spell_correct(sentence)
-  raise 'please, insert a text' if sentence.empty?
+  raise 'please, insert a text' if sentence.empty?.
   sentence_array = sentence.split(' ')
   corrected_sentence = []
   dictionary = ['hello', 'world', 'apple', 'one', 'two', 'three', 'i', 'have']
