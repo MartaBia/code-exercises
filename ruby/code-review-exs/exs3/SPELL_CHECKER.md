@@ -14,4 +14,5 @@ INPUT | OUTPUT
 "Hello world" | "Hello world"
 "Helo world" | "~Helo~ world" 
 "Helo worl" | "~Helo~ ~worl~"
+"I hav one aple" | "I ~hav~ one ~aple~"
 123 | raise error: "please, insert a string"

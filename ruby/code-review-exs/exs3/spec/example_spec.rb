@@ -9,7 +9,11 @@ RSpec.describe 'is_spell_correct' do
     expect(is_spell_correct('Hello world')).to eq('Hello world')
   end
 
-  it 'returns the misspelled word highlighted' do
+  it 'returns a string with one words misspelled highlighted' do
     expect(is_spell_correct('Helo world')).to eq('~Helo~ world')
+  end
+
+  it 'returns a string with all the words misspelled highlighted' do
+    expect(is_spell_correct('Helo worl')).to eq('~Helo~ ~worl~')
   end
 end
