@@ -1,3 +1,3 @@
 def is_spell_correct(sentence)
-  return 'Hello'
+  return sentence
 end
