@@ -37,6 +37,19 @@ def remove_special_character(word):
             characters.remove(character)
     return ''.join(characters)
 
+# -- Super clever version found on Codewars: ----------------------
+
+# def validate_hello(greetings):
+#     possible_greetings = [
+#         "hello", "ciao", "salut", "hallo", "hola", "ahoj", "czesc"
+#     ]
+
+#     for greet in possible_greetings:
+#         if greet in greetings.lower():
+#             return True
+
+#     return False
+
 
 print(validate_hello('hello'))
 print(validate_hello('ciao bella!'))
