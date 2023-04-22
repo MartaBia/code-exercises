@@ -10,6 +10,23 @@
 # >>> print(d.look('Banana'))
 # Can't find entry for Banana
 
+# -- First version: --------------
+
+# class Dictionary():
+#     def __init__(self):
+#         self.dictionary = {}
+
+#     def newentry(self, word, definition):
+#         self.dictionary[word] = definition
+
+#     def look(self, key):
+#         if key in self.dictionary:
+#             return self.dictionary[key]
+#         else:
+#             return (f"Can't find entry for {key}")
+
+# -- Refactor: --------------
+
 class Dictionary():
     def __init__(self):
         self.dictionary = {}
@@ -18,10 +35,7 @@ class Dictionary():
         self.dictionary[word] = definition
 
     def look(self, key):
-        if key in self.dictionary:
-            return self.dictionary[key]
-        else:
-            return (f"Can't find entry for {key}")
+        return self.dictionary[key] if key in self.dictionary else (f"Can't find entry for {key}")
 
 
 d = Dictionary()
