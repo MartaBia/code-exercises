@@ -15,24 +15,27 @@ def validate_hello(greetings):
     possible_greetings = [
         "hello", "ciao", "salut", "hallo", "hola", "ahoj", "czesc"
     ]
-    special_characters = [".", ",", "?", "!", ":", ";", "*"]
 
     words = greetings.split()
     final_words = ""
     for word in words:
-        characters = list(word)
-        for character in characters:
-            if character in special_characters:
-                characters.remove(character)
-        final_words += f"{''.join(characters)} "
+        final_words += f"{remove_special_character(word)} "
 
-    final_words_list = final_words.split()
-
-    for word in final_words_list:
+    for word in final_words.split():
         if word.lower() in possible_greetings:
             return True
 
     return False
+
+
+def remove_special_character(word):
+    special_characters = [".", ",", "?", "!", ":", ";", "*"]
+    characters = list(word)
+
+    for character in characters:
+        if character in special_characters:
+            characters.remove(character)
+    return ''.join(characters)
 
 
 print(validate_hello('hello'))
