@@ -1,0 +1,44 @@
+# You received a whatsup message from an unknown number. Could it be from that girl/boy with a foreign accent you met yesterday evening?
+# Write a simple function to check if the string contains the word hallo in different languages.
+
+# These are the languages of the possible people you met the night before:
+
+# hello - english
+# ciao - italian
+# salut - french
+# hallo - german
+# hola - spanish
+# ahoj - czech republic
+# czesc - polish
+
+def validate_hello(greetings):
+    possible_greetings = [
+        "hello", "ciao", "salut", "hallo", "hola", "ahoj", "czesc"
+    ]
+    special_characters = [".", ",", "?", "!", ":", ";", "*"]
+
+    words = greetings.split()
+    final_words = ""
+    for word in words:
+        characters = list(word)
+        for character in characters:
+            if character in special_characters:
+                characters.remove(character)
+        final_words += f"{''.join(characters)} "
+
+    final_words_list = final_words.split()
+
+    for word in final_words_list:
+        if word.lower() in possible_greetings:
+            return True
+
+    return False
+
+
+print(validate_hello('hello'))
+print(validate_hello('ciao bella!'))
+print(validate_hello('salut'))
+print(validate_hello('hallo, salut'))
+print(validate_hello('hombre! Hola!'))
+print(validate_hello('AHOJ'))
+print(validate_hello('meh'))
