@@ -6,8 +6,8 @@
 
 def count(s):
     characters_count = {}
-    characters = [*s]
-    for character in characters:
+
+    for character in [*s]:
         if character in characters_count:
             characters_count[character] += 1
         else:
