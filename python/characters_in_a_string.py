@@ -5,5 +5,22 @@
 
 
 def count(s):
-    # The function code should be here
-    return {}
+    characters_count = {}
+    characters = [*s]
+    for character in characters:
+        if character in characters_count:
+            characters_count[character] += 1
+        else:
+            characters_count[character] = 1
+
+    return characters_count
+
+
+print(count('aba'))
+# {'a': 2, 'b': 1}
+print(count(''))
+# {}
+print(count('aa'))
+# {'a' : 2}
+print(count('aabb'))
+# {'b' : 2, 'a' : 2}
