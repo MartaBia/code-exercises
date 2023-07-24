@@ -18,5 +18,34 @@
 # If the walk is going to be under 10 minutes, the function should recommend that you walk.
 # If both options are going to take the same amount of time, the function should recommend that you walk
 
+walk_speed = 5  # (km/hr)
+bus_speed = 8  # (km/hr)
+
+
 def calculator(distance, bus_drive, bus_walk):
-    pass  # Your code here
+    walk_time = distance / walk_speed
+
+    if (walk_time < 0.16):
+        return "Walk"
+    elif (walk_time > 2.0):
+        return "Bus"
+
+    bus_time = (bus_drive / bus_speed) + (bus_walk / walk_speed)
+
+    return "Bus" if (bus_time < walk_time) else "Walk"
+
+
+print(calculator(5, 6, 1))
+# "Bus"
+print(calculator(4, 5, 1))
+# "Walk"
+print(calculator(5, 8, 0))
+# "Walk"
+print(calculator(5, 4, 3))
+# "Walk"
+print(calculator(11, 15, 2))
+# "Bus"
+print(calculator(0.6, 0.4, 0))
+"Walk"
+print(calculator(10, 0.4, 0))
+# "Bus"
