@@ -7,7 +7,7 @@
 def count(s):
     characters_count = {}
 
-    for character in [*s]:
+    for character in s:
         if character in characters_count:
             characters_count[character] += 1
         else:

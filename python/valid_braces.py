@@ -14,4 +14,36 @@
 # "[({})](]" =>  False
 
 def valid_braces(string):
-    pass
+    open = ['(', '[', '{']
+    close = [')', ']', '}']
+    checklist = []
+    for brace in string:
+        if brace in close and len(checklist) == 0:
+            return False
+        if brace in close:
+            close_brace_index = close.index(brace)
+            last_of_checklist = checklist[-1]
+            if last_of_checklist in open:
+                open_brace_index = open.index(last_of_checklist)
+                if close_brace_index == open_brace_index:
+                    checklist.pop(-1)
+                    continue
+
+        checklist.append(brace)
+
+    if len(checklist) == 0:
+        return True
+    else:
+        return False
+
+
+print(valid_braces('(){}[]'))
+# True
+print(valid_braces('([{}])'))
+# True
+print(valid_braces('(}'))
+# False
+print(valid_braces('(])'))
+# False
+print(valid_braces('({})](]'))
+# False
