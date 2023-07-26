@@ -1,4 +1,4 @@
-# Given a List [] of n integers , find minimum number to be inserted in a list,
+# Given a List [] of n integers, find minimum number to be inserted in a list,
 # so that sum of all elements of list should equal the closest prime number.
 
 # Notes
@@ -11,7 +11,28 @@
 # The newer list's sum should equal the closest prime number.
 
 def minimum_number(numbers):
-    pass  # your code here
+    sum = 0
+    for number in numbers:
+        sum += number
+    prime_sum = 0
+
+    while is_prime(sum) == False:
+        prime_sum += 1
+        sum += 1
+
+    return prime_sum
+
+
+def is_prime(number):
+    sum = 0
+    for i in range(2, number//2):
+        if number % i == 0:
+            sum += 1
+
+    if sum == 0:
+        return True
+    else:
+        return False
 
 
 print(minimum_number([3, 1, 2]))
