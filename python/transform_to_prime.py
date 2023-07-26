@@ -14,29 +14,24 @@ def minimum_number(numbers):
     sum = 0
     for number in numbers:
         sum += number
-    prime_sum = 0
+    prime_sum = sum
 
-    while is_prime(sum) == False:
+    while is_prime(prime_sum) == False:
         prime_sum += 1
-        sum += 1
 
-    return prime_sum
+    return prime_sum - sum
 
 
 def is_prime(number):
-    sum = 0
     for i in range(2, number//2):
         if number % i == 0:
-            sum += 1
-
-    if sum == 0:
-        return True
-    else:
-        return False
+            return False
 
 
 print(minimum_number([3, 1, 2]))
 # => 1
+print(minimum_number([1, 1]))
+# => 0
 print(minimum_number([5, 2]))
 # => 0
 print(minimum_number([1, 1, 1]))
