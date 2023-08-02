@@ -12,4 +12,8 @@ describe("bandPassFilter", () => {
   it('returns a modified value when the soundwave is higher than the highest value', () => {
     expect(bandPassFilter([1001], 40, 1000)).toEqual([1000])
   })
+
+  it('returns the original array when all the values are between the ranges', () => {
+    expect(bandPassFilter([100, 60, 900], 40, 1000)).toEqual([100, 60, 900])
+  })
 })

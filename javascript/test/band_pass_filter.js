@@ -1,12 +1,17 @@
 const bandPassFilter = (soundWaves, lowestValue, highestValue) => {
-  soundWave = soundWaves[0];
-  if (soundWave < lowestValue) {
-    return [lowestValue]
-  } else if (soundWave > highestValue) {
-    return [highestValue]
-  } else {
-    return soundWaves
-  }
+  correctedWaves = []
+  
+  soundWaves.forEach(soundWave => {
+    if (soundWave < lowestValue) {
+      soundWave = lowestValue
+    }
+    if (soundWave > highestValue) {
+      soundWave = highestValue
+    } 
+
+    correctedWaves.push(soundWave)
+  });
+  return correctedWaves
 }
 
 module.exports = bandPassFilter;
