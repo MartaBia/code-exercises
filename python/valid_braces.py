@@ -64,6 +64,18 @@ def valid_braces_dict(string):
         return False
 
 
+def valid_braces_optimised(string):
+    braces_dict = {"(": ")", "[": "]", "{": "}"}
+    checklist = []
+    for brace in string:
+        if brace in braces_dict.keys():
+            checklist.append(brace)
+        else:
+            if len(checklist) == 0 or braces_dict[checklist.pop()] != brace:
+                return False
+    return len(checklist) == 0
+
+
 print(valid_braces('(){}[]'))
 # True
 print(valid_braces('([{}])'))

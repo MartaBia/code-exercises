@@ -15,6 +15,30 @@
 // Total = 11.
 
 function addAll(numbers) {
-  // TODO
+  let costArray = []
+  let sum = 0
+  let i = 0
+  numbers.forEach(number => {
+    sum += number
+    if (i != 0) {
+      costArray.push(sum)
+    }
+    i ++;
+  });
+
+  // console.log(costArray)
+
+  let totalCost = 0
+  costArray.forEach(number => {
+    totalCost += number
+  })
+
+  return totalCost
 }
 
+console.log(addAll([1, 2, 3]));
+// 9
+console.log(addAll([1, 2, 3, 4]));
+// 19
+console.log(addAll([1, 2, 3, 4, 5]))
+// 33
